@@ -33,6 +33,8 @@ function md2html () {
 */
 function parseMarkdown (node, i, parent, tree) {
   if (!node.children) return false
+  
+  console.log('node.type', node.type)
 
   if (node.type &&
     node.type === 'linkReference' &&
@@ -89,7 +91,7 @@ function createSpan (data) {
     return `data-${key}="${data.attr[key]}"`
   }).join(' ')
 
-  return `<span${id ? ` id="${id}"` : ''} ${classes ? `class="${classes}"` : ''} ${attr || ''}>${text}</span>`
+  return `<div${id ? ` id="${id}"` : ''} ${classes ? `class="${classes}"` : ''} ${attr || ''}>${text}</div>`
 }
 
 function html2md () {
